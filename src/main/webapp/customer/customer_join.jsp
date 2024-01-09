@@ -20,17 +20,21 @@
 					</td>
 				</tr>
 				<tr>
-					<td>비밀번호</td>
-					<td>
-						<input type="password" name="pw" required>
-					</td>
-				</tr>
-				<tr>
-				</tr>
-				<tr>
 					<td>이름</td>
 					<td>
 						<input type="text" name="name" required>
+					</td>
+				</tr>
+				<tr>
+					<td>나이</td>
+					<td>
+						<input type="number" name="age" required>
+					</td>
+				</tr>
+				<tr>
+					<td>비밀번호</td>
+					<td>
+						<input type="password" name="pw" required>
 					</td>
 				</tr>
 				<tr>
@@ -44,10 +48,11 @@
 					<td>
 						<input type="text" name="address">
 					</td>
-					<td>성별</td>
+				</tr>
+				<tr>
+					<td>전화번호</td>
 					<td>
-						<input type="radio" name="gender" value="M">남자
-						<input type="radio" name="gender" value="F">여자
+						<input type="text" name="phone" required>
 					</td>
 				</tr>
 			</table>	
