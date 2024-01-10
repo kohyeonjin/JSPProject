@@ -10,7 +10,7 @@
     <h2 align="center"><font color="red">US CVG*</font></h2>
     <table border="2" width=300 bordercolor="white" cellspacing="3"
         bordercolor="gray" align="center">
-        <form action="userInfoTable.jsp" method="post">
+        <form action="loginForm.customer" method="post">
             
             <tr>
                 <td align="center">아이디 </td>
@@ -27,5 +27,6 @@
                 <input type="submit"value="비밀번호 찾기"></td>
                    
     </table>
+    ${msg }
 </body>
 </html>

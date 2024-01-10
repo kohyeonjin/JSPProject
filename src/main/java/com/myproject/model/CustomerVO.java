@@ -17,7 +17,7 @@ public class CustomerVO {
 		// TODO Auto-generated constructor stub
 	}
 	public CustomerVO(String customerId, String name, int age, String pw, String email, String address,
-			Timestamp regdate, String phoneNumber) {
+			 String phoneNumber) {
 		super();
 		CustomerId = customerId;
 		this.name = name;
@@ -25,7 +25,6 @@ public class CustomerVO {
 		this.pw = pw;
 		this.email = email;
 		this.address = address;
-		this.regdate = regdate;
 		this.phoneNumber = phoneNumber;
 	}
 	
