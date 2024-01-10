@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 
 public class MovieUtil {
 	
-	public static final String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	public static final String url = "jdbc:oracle:thin:@172.30.1.9:1521:xe";
 	public static final String uid = "JSP";
 	public static final String upw = "JSP";
 	

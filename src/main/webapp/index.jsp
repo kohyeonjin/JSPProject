@@ -112,7 +112,7 @@ right:34.5px;
     <div class="box">
         <nav><!--의미(시맨틱)가 있는 태그-->
             <ul class="container">
-             <a href="${pageContext.request.contextPath}/index.jsp">HOME</a> 
+             <a href="${pageContext.request.contextPath}/index.jsp">홈</a> 
 			<a href="${pageContext.request.contextPath}/customer/reservation.customer">예매</a>
 			<a href= "${pageContext.request.contextPath}/customer/login.customer">로그인</a>
 			<a href= "${pageContext.request.contextPath}/customer/join.customer">회원가입</a>
