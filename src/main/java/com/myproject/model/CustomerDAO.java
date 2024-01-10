@@ -1,5 +1,12 @@
 package com.myproject.model;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+
+
 import com.myproject.util.MovieUtil;
 
 public class CustomerDAO {
@@ -21,5 +28,75 @@ public class CustomerDAO {
 		
 		return instance;
 	}
+	
+	public int idCheck(String id) {
+		
+		
+	
+		int result=0;
+		Connection conn= null;
+		PreparedStatement pstmt= null;
+		ResultSet rs = null;
+		
+		
+		String sql="SELECT * FROM Customer WHERE CUSTOMERid=?";
+				
+		try { 
+			conn =DriverManager.getConnection(url,uid,upw);
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1,id);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				result=1;
+			}else {
+				result=0;
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			MovieUtil.close(conn, pstmt, rs);
+		}
+		return result;
+	}
+	
+	
+	public void insertCustomer(CustomerVO vo) {
+		
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		
+		String sql="insert into CUSTOMER values(?,?,?,?,?,?,sysdate,?)";
+		
+					
+		
+		try {
+			conn=DriverManager.getConnection(url, uid, upw);
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1,vo.getCustomerId());
+			pstmt.setString(2,vo.getName());
+			pstmt.setInt(3,vo.getAge());
+			pstmt.setString(4,vo.getPw());
+			pstmt.setString(5,vo.getEmail());
+			pstmt.setString(6,vo.getAddress());
+			pstmt.setString(7,vo.getPhoneNumber());
+			
+			pstmt.executeUpdate();
+			
+			
+			
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			MovieUtil.close(conn, pstmt, null);
+		}
+	}
+	
+	
+	
+	
+	
+	
 	
 }

@@ -13,7 +13,8 @@ import com.mymovie.customer.service.CustomerServiceImpl;
 
 @WebServlet("*.customer")
 public class CustomerController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	
+	CustomerService service = new CustomerServiceImpl();
        
   
     public CustomerController() {
@@ -38,7 +39,7 @@ public class CustomerController extends HttpServlet {
 			
 			System.out.println(path);
 			
-			CustomerService service = new CustomerServiceImpl();
+			
 			
 			if(path.equals("/customer/reservation.customer")) {
 				response.sendRedirect("customer_reservation.jsp");
@@ -46,6 +47,11 @@ public class CustomerController extends HttpServlet {
 				response.sendRedirect("customer_login.jsp");
 			}else if(path.equals("/customer/join.customer")) {
 				response.sendRedirect("customer_join.jsp");
+			}else if(path.equals("/customer/joinForm.customer")) {
+
+				int result = service.join(request, response);
+				
+				System.out.println(1);
 			}
 			
 	

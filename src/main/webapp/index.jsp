@@ -117,7 +117,6 @@ right:34.5px;
 			<a href= "${pageContext.request.contextPath}/customer/login.customer">로그인</a>
 			<a href= "${pageContext.request.contextPath}/customer/join.customer">회원가입</a>
              
-             
             </ul>
             </nav>
             

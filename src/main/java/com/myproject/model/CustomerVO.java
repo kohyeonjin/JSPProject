@@ -10,22 +10,20 @@ public class CustomerVO {
 	private String pw;
 	private String email;
 	private String address;
-	private Timestamp regdate;
 	private String phoneNumber;
 	
 	public CustomerVO() {
 		// TODO Auto-generated constructor stub
 	}
 	public CustomerVO(String customerId, String name, int age, String pw, String email, String address,
-			Timestamp regdate, String phoneNumber) {
+			String phoneNumber) {
 		super();
-		CustomerId = customerId;
+		this.CustomerId = customerId;
 		this.name = name;
 		this.age = age;
 		this.pw = pw;
 		this.email = email;
 		this.address = address;
-		this.regdate = regdate;
 		this.phoneNumber = phoneNumber;
 	}
 	
@@ -79,13 +77,6 @@ public class CustomerVO {
 		this.address = address;
 	}
 
-	public Timestamp getRegdate() {
-		return regdate;
-	}
-
-	public void setRegdate(Timestamp regdate) {
-		this.regdate = regdate;
-	}
 
 	public String getPhoneNumber() {
 		return phoneNumber;
@@ -94,6 +85,7 @@ public class CustomerVO {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
 
 	
 }
