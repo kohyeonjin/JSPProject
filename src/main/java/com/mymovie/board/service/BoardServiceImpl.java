@@ -31,7 +31,7 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Override
 	public void delete(HttpServletRequest request, HttpServletResponse response) {
-		String id = "31";
+		String id = request.getParameter("boardid");
 		dao.delete(id); //오버라이딩된 delete
 		
 	}
