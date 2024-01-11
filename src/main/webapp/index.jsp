@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <head>
+
 
     <meta charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,7 +29,7 @@
             padding-top:10px;
             margin:1px;
             border: 1px dashed #F59B7A;
-            background-color:black; 
+            background-color:black; 	
                
         }
         .container > li {
@@ -105,23 +106,50 @@ bottom:40.5px;
 right:34.5px;
 } 
 
+
+	
     </style>
 </head>
 <body>
-   <h2 style="text-align:center; font-size: 30px; color: red;">US CVG*</h2>
+	
+
+   <h2 style="text-align:center; font-size: 30px; color: red;" > US CVG*</h2>
     <div class="box">
-        <nav><!--의미(시맨틱)가 있는 태그-->
+        <nav>
             <ul class="container">
              <a href="${pageContext.request.contextPath}/index.jsp">HOME</a> 
 			<a href="${pageContext.request.contextPath}/customer/reservation.customer">예매</a>
-			<a href= "${pageContext.request.contextPath}/customer/login.customer">로그인</a>
-			<a href= "${pageContext.request.contextPath}/customer/join.customer">회원가입</a>
-             
+			<a href="${pageContext.request.contextPath}/customer/reservation.customer">후기게시판</a>
+			<iframe width="560" height="400" src="https://www.youtube.com/embed/gXEpZpnImY8?si=P1HAe7bYSyop4woK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+			
+			 <c:choose>
+                    <c:when test="${sessionScope.customerId == null }">
+                    <li>
+                        <a href= "${pageContext.request.contextPath}/customer/login.customer">로그인</a>
+                        
+                    </li>
+                    <li>
+                    <a href= "${pageContext.request.contextPath}/customer/join.customer">회원가입</a>
+                    </li>
+                    </c:when>
+                    
+                    <c:otherwise>
+                    
+                      <li>
+                        <a href="${pageContext.request.contextPath}/customer/logout.customer">로그아웃</a>
+                        
+                    </li>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/customer/page.customer" style="color:red">MYPAGE</a>
+                    </li>
+                    
+                    </c:otherwise>
+                    
+                    </c:choose>
             </ul>
-            </nav>
             
-    </div>
-   
+            </nav>
+			</div>
    
 
 </body>
