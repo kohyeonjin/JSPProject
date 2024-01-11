@@ -15,6 +15,8 @@ public interface CustomerService {
 	
 	public int update(HttpServletRequest request, HttpServletResponse response);
 	
+
 	public int delete(HttpServletRequest request, HttpServletResponse response);
 	
+
 }

@@ -221,6 +221,7 @@ public class CustomerDAO {
 		
 		return result;
 	}
+
 		public void delete(String id, String pw) {
 			Connection conn= null;
 			PreparedStatement pstmt= null;
@@ -243,5 +244,6 @@ public class CustomerDAO {
 		
 		
 	}
+
 	
 }

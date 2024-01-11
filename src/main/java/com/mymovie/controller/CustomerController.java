@@ -3,6 +3,7 @@ package com.mymovie.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.imageio.IIOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +14,6 @@ import javax.servlet.http.HttpSession;
 import com.mymovie.customer.service.CustomerService;
 import com.mymovie.customer.service.CustomerServiceImpl;
 import com.myproject.model.CustomerVO;
-
 
 @WebServlet("*.customer")
 public class CustomerController extends HttpServlet {
@@ -88,6 +88,7 @@ public class CustomerController extends HttpServlet {
 				session.invalidate();
 				response.sendRedirect(request.getContextPath());
 
+
 			}else if (path.equals("/customer/page.customer")) {
 				
 				request.getRequestDispatcher("customer_page.jsp").forward(request, response);
@@ -138,7 +139,51 @@ public class CustomerController extends HttpServlet {
 					request.setAttribute("msg","비밀번호를 확인하세요");
 					request.getRequestDispatcher("customer_delete.jsp").forward(request, response);
 				}
-			}	
+				
 		
-	}
-	}
+	
+	
+
+
+			}else if (path.equals("/customer/page.customer")) {
+				
+				request.getRequestDispatcher("customer_page.jsp").forward(request, response);
+				
+			}else if (path.equals("/customer/update.customer")){
+				
+				CustomerVO vo = service.getinfo(request, response);
+				
+				request.setAttribute("vo", vo);
+				request.getRequestDispatcher("customer_update.jsp").forward(request, response);
+				
+			}else if(path.equals("/customer/updateForm.customer")) {
+				
+				int result = service.update(request,response);
+				
+				if(result == 1) {
+		
+					
+					//브라우저 화면에 직접 응답을 해주는 형태
+					response.setContentType("text/html; charset=UTF-8");
+					
+					PrintWriter out = response.getWriter();				
+					out.println("<script>");
+					out.println("alert('업데이트에 성공했습니다.');");
+					out.println("location.href ='../index.jsp';");
+					out.println("</script>");
+					
+				}else {
+					
+					response.sendRedirect("page.customer");
+				}
+			}
+}
+}
+				
+				
+			
+			
+		
+	
+	
+

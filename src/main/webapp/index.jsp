@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -119,7 +120,7 @@ right:34.5px;
             <ul class="container">
              <a href="${pageContext.request.contextPath}/index.jsp">HOME</a> 
 			<a href="${pageContext.request.contextPath}/customer/reservation.customer">예매</a>
-			<a href="${pageContext.request.contextPath}/customer/reservation.customer">후기게시판</a>
+			<a href="${pageContext.request.contextPath}/Board/board_list.jsp">후기게시판</a>
 			<iframe width="560" height="400" src="https://www.youtube.com/embed/gXEpZpnImY8?si=P1HAe7bYSyop4woK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 			
 			 <c:choose>
@@ -153,4 +154,6 @@ right:34.5px;
    
 
 </body>
+
+
 </html>
