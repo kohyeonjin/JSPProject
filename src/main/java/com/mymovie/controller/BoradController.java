@@ -1,14 +1,18 @@
 package com.mymovie.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mymovie.board.model.BoardVO;
 import com.mymovie.board.service.BoardService;
 import com.mymovie.board.service.BoardServiceImpl;
+import com.myproject.model.CustomerVO;
 
 @WebServlet("*.board")
 public class BoradController extends HttpServlet {
@@ -38,8 +42,12 @@ public class BoradController extends HttpServlet {
 		BoardService service = new BoardServiceImpl();
 		
 		
-		if(path.equals("/board/list.board")) {
+		if(path.equals("/Board/list.board")) {
 			
+			ArrayList<BoardVO> list = service.getList();
+			
+			System.out.println(list.toString());
+			request.setAttribute("list", list);
 			request.getRequestDispatcher("board_list.jsp").forward(request, response);
 			
 			
@@ -50,7 +58,12 @@ public class BoradController extends HttpServlet {
 		}else if(path.equals("/Board/registForm.board")) {
 			
 			service.regist(request, response);
+			
+			request.getRequestDispatcher("/Board/list.board").forward(request, response);
+			
 		}
+			
+		
 		
 		
 	}

@@ -9,29 +9,29 @@
 </head>
 <body>
 	
-
 	<div class="container">
 		<h3>후기 게시판</h3>
 
-		<table class="table table-bordered">
+		<table class="table table-bordered" border="1">
 			<thead>
 				<tr>
 					<th>글 번호</th>
 					<th>작성자</th>
 					<th>제목</th>
 					<th>날짜</th>
-					<th>조회수</th>
 				</tr>
 			</thead>
-
-			<tbody>
+			
+				<c:forEach var="i" items="${list }">
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>${i.boardid }</td>
+					<td>${i.boardcustomerid }</td>
+					<td>${i.boardtitle }</td>
+					<td>${i.boarddate }</td>
 				</tr>
+				</c:forEach>
+			<tbody>
+			
 			</tbody>
 			
 			<tbody>
