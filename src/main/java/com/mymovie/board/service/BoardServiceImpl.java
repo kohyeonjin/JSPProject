@@ -34,4 +34,14 @@ public class BoardServiceImpl implements BoardService {
 		return list;
 	}
 
+
+	@Override
+	public BoardVO getContent(HttpServletRequest request, HttpServletResponse response) {
+		
+		String bno = request.getParameter("boardid");
+		BoardVO vo = dao.getContent(bno);
+		
+		return vo;
+	}
+
 }

@@ -61,6 +61,14 @@ public class BoradController extends HttpServlet {
 			
 			request.getRequestDispatcher("/Board/list.board").forward(request, response);
 			
+		}else if(path.equals("/Board/content.board")) {
+			
+			BoardVO vo = service.getContent(request, response);
+			
+		
+			request.setAttribute("vo", vo);
+			System.out.println(vo);
+			request.getRequestDispatcher("board_content.jsp").forward(request, response);
 		}
 			
 		

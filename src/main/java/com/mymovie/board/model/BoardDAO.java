@@ -113,6 +113,55 @@ public class BoardDAO {
 		return list;
 	}
 	
+	//내용조회
+	
+	public BoardVO getContent(String boardid) {
+		
+		BoardVO vo =new BoardVO();
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		ResultSet re = null;
+		
+		String sql = "select * from board where boardid =?";
+		
+		try {
+			
+			conn = DriverManager.getConnection(url,uid,upw);
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, boardid);
+			
+			re = pstmt.executeQuery();
+			
+			
+			
+			if(re.next()) {
+				
+			int id = re.getInt("boardid");
+			String board_customer_id = re.getString("board_customer_id");
+			String boardtitle = re.getString("boardtitle");
+			String boardtext = re.getString("boardtext");
+			Timestamp boarddate = re.getTimestamp("boarddate");
+			
+			vo.setBoardid(id);
+			vo.setBoardcustomerid(board_customer_id);
+			vo.setBoardtitle(boardtitle);
+			vo.setBoardtext(boardtext);
+			vo.setBoarddate(boarddate);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			 
+			MovieUtil.close(conn, pstmt, re);
+		}
+		
+		return vo;
+		
+	}
+	
 	
 	
 	

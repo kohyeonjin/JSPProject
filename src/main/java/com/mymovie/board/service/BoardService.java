@@ -13,4 +13,5 @@ public interface BoardService  {
 	
 	public ArrayList<BoardVO> getList();
 
+	public BoardVO getContent(HttpServletRequest request, HttpServletResponse response);
 }

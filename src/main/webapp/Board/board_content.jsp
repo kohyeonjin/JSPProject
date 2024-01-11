@@ -14,31 +14,34 @@
 <body>
 <div align="center" class="div_center">
 
+	
+
+	
 	<h3>게시글 내용 보기</h3>
 	<hr>
 	<table border="1" width="500">
 		<tr>
 			<td width="20%">글번호</td>
-			<td width="30%"></td>
+			<td width="30%">${vo.boardid}</td>
 			
 			<td width="20%">조회수</td>
 			<td width="30%"></td>
 		</tr>
 		<tr>
 			<td>작성자</td>
-			<td></td>
+			<td>${vo.boardcustomerid}</td>
 			
 			<td>작성일</td>
-			<td ></td>
+			<td >${vo.boarddate}</td>
 		</tr>
 		
 		<tr>
 			<td width="20%">글제목</td>
-			<td colspan="3"></td>
+			<td colspan="3">${vo.boardtitle }</td>
 		</tr>
 		<tr>
 			<td width="20%">글내용</td>
-			<td colspan="3" height="120px"></td>
+			<td colspan="3" height="120px">${vo.boardtext }</td>
 		</tr>
 		
 		<tr>
