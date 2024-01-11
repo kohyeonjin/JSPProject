@@ -9,7 +9,7 @@ public class MovieUtil {
 	public static final String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	public static final String uid = "JSP";
 	public static final String upw = "JSP";
-	
+
 	//공통부분
 	public static void close(Connection conn, PreparedStatement pstmt, ResultSet rs) {
 		try {
