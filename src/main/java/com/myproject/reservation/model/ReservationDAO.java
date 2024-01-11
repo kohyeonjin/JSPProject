@@ -30,24 +30,22 @@ public class ReservationDAO {
 	public static ReservationDAO getInstance() {
 		return rvdao;
 	}
-	public int insert(String seat,String customerid,String time,String movie) {
+	public int insert(String res_cus_id , String showId) {
 		
 		int result = 0;
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "INSERT INTO RESERVATION VALUES(RESERVATION_SEQ.NEXTVAL,?,SYSDATE,?,?,?)";
+		String sql = "INSERT INTO RESERVATION VALUES(RESERVATION_SEQ.NEXTVAL,SYSDATE,?,?)";
 		
 		try {
 			conn = DriverManager.getConnection(url,uid,upw);
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, seat);
-			pstmt.setString(2, customerid);
-			pstmt.setString(3, time);
-			pstmt.setString(4, movie);
-			
+			pstmt.setString(1, res_cus_id);
+			pstmt.setString(2, showId);
+						
 			result = pstmt.executeUpdate();
 			
 			
