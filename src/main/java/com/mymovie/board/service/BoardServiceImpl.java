@@ -10,16 +10,15 @@ import com.mymovie.board.model.BoardVO;
 
 public class BoardServiceImpl implements BoardService {
 	private BoardDAO dao=BoardDAO.getInstance();
-	@Override
+	
 	public void regist(HttpServletRequest request, HttpServletResponse response) {
-		
-		String boardid = request.getParameter("boardid");
+		String customerid=request.getParameter("boardcustomerid");
+		String  boardid= request.getParameter("boardid");
 		String boardtitle = request.getParameter("boardtitle");
 		String boardtext = request.getParameter("boardtext");
-	
 		
-		System.out.println(boardtitle);
-		
+		dao.insert(customerid,boardtitle,boardtext);
+		return;
 	}
 	@Override
 	public ArrayList<BoardVO> getList() {

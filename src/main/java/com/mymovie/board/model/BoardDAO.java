@@ -36,8 +36,7 @@ public class BoardDAO {
 	}
 	
 	
-
-	public void insert (String boardtitle,String boardtext,String board_customer_id) {
+	public void insert(  String customerid,String boardtitle ,String boardtext) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -47,9 +46,13 @@ public class BoardDAO {
 			
 			conn = DriverManager.getConnection(url,uid,upw);
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, boardtext);
-			pstmt.setString(2,board_customer_id);
-			pstmt.setString(3, boardtitle);
+		
+			pstmt.setString(1,customerid);
+			pstmt.setString(2, boardtitle);
+			pstmt.setString(3, boardtext);
+			
+			
+			
 			
 			pstmt.executeUpdate();
 			
@@ -214,6 +217,7 @@ public class BoardDAO {
 				}
 				return result;
 			}
+			
 	
 	
 }
