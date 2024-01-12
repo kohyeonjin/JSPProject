@@ -82,48 +82,64 @@ public class CustomerController extends HttpServlet {
 				request.getRequestDispatcher("customer_login.jsp").forward(request, response);
 
 			}
-			
-		}else if (path.equals("/customer/logout.customer")) {
-				HttpSession session = request.getSession();
-				session.invalidate();
-				response.sendRedirect(request.getContextPath());
 
-			}else if (path.equals("/customer/page.customer")) {
-				
-				request.getRequestDispatcher("customer_page.jsp").forward(request, response);
-				
-			}else if (path.equals("/customer/update.customer")){
-				
-				CustomerVO vo = service.getinfo(request, response);
-				
-				request.setAttribute("vo", vo);
-				request.getRequestDispatcher("customer_update.jsp").forward(request, response);
-				
-			}else if(path.equals("/customer/updateForm.customer")) {
-				
-				int result = service.update(request,response);
-				
-				if(result == 1) {
-		
-					
-					//브라우저 화면에 직접 응답을 해주는 형태
-					response.setContentType("text/html; charset=UTF-8");
-					
-					PrintWriter out = response.getWriter();				
-					out.println("<script>");
-					out.println("alert('업데이트에 성공했습니다.');");
-					out.println("location.href ='../index.jsp';");
-					out.println("</script>");
-					
-				}else {
-					
-					response.sendRedirect("page.customer");
-				}
-				
-				
+		}else if (path.equals("/customer/logout.customer")) {
+			HttpSession session = request.getSession();
+			session.invalidate();
+			response.sendRedirect(request.getContextPath());
+
+		}else if (path.equals("/customer/page.customer")) {
+
+			request.getRequestDispatcher("customer_page.jsp").forward(request, response);
+
+		}else if (path.equals("/customer/update.customer")){
+
+			CustomerVO vo = service.getinfo(request, response);
+
+			request.setAttribute("vo", vo);
+			request.getRequestDispatcher("customer_update.jsp").forward(request, response);
+
+		}else if(path.equals("/customer/updateForm.customer")) {
+
+			int result = service.update(request,response);
+
+			if(result == 1) {
+
+
+				//브라우저 화면에 직접 응답을 해주는 형태
+				response.setContentType("text/html; charset=UTF-8");
+
+				PrintWriter out = response.getWriter();				
+				out.println("<script>");
+				out.println("alert('업데이트에 성공했습니다.');");
+				out.println("location.href ='../index.jsp';");
+				out.println("</script>");
+
+			}else {
+
+				response.sendRedirect("page.customer");
 			}
-			
-		
+
+
+		}else if(path.equals("/customer/delete.customer")) {//탈퇴화면
+			request.getRequestDispatcher("customer_delete.jsp").forward(request, response);
+
+		}else if(path.equals("/customer/deleteForm.customer")) {
+			int result = service.delete(request, response);
+
+			if(result==1) {
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('정상적으로 탈퇴되었습니다');");
+				out.println("</script>");
+			}else {
+				request.setAttribute("msg","비밀번호를 확인하세요");
+				request.getRequestDispatcher("customer_delete.jsp").forward(request, response);
+			}
+
+
+		}
 	}
-	}
+}
 

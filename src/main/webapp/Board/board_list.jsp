@@ -39,8 +39,6 @@
 					<td colspan="5" align="right">
 						<form action="" class="form-inline" >
 						  <div class="form-group">
-						    <input type="text" name="search" placeholder="제목검색" class="form-control" >
-						  	<input type="submit" value="검색" class="btn btn-default">
 							<input type="button" value="글 작성" class="btn btn-default" onclick="location.href='write.board';">
 						  </div>
 						</form> 

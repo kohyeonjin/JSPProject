@@ -21,7 +21,7 @@
 		<h3>US CVG*</h3>
 		<hr>
 		<p>
-		${sessionScope.customerid } (${sessionScope.name })님 환영 합니다.
+		${sessionScope.customerId }님 환영 합니다.
 		</p>
 
 		<a href="update.customer">[회원 정보 변경]</a>&nbsp;&nbsp;

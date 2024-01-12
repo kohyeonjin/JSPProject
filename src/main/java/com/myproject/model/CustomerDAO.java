@@ -222,4 +222,28 @@ public class CustomerDAO {
 		return result;
 	}
 	
+	
+	public void delete(String id, String pw) {
+		Connection conn= null;
+		PreparedStatement pstmt= null;
+		
+		String sql="DELETE FROM customer where customerId=? and pw=?";
+			
+		
+		try {
+			conn=DriverManager.getConnection(url,uid,upw);
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1,id);
+			pstmt.setString(2, pw);
+			
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			MovieUtil.close(conn, pstmt, null);
+		}
+	
+	
+}
+	
 }

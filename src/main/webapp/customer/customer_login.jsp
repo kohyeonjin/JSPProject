@@ -23,8 +23,6 @@
                 <td align="center" colspan=100><input type="submit" value="로그인" onclick=></td>
                    
                 <tr>
-                <td align="center" colspan=5> <input type="submit" value="회원가입"> <input type="submit" value="아이디 찾기">
-                <input type="submit"value="비밀번호 찾기"></td>
                    
     </table>
     ${msg }

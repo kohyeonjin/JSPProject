@@ -14,4 +14,10 @@ public interface BoardService  {
 	public ArrayList<BoardVO> getList();
 
 	public BoardVO getContent(HttpServletRequest request, HttpServletResponse response);
+	
+	public void delete(HttpServletRequest request, HttpServletResponse response);
+	
+	public int update(HttpServletRequest request, HttpServletResponse response);
+	
+	
 }

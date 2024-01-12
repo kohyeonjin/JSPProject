@@ -11,29 +11,27 @@
 	<h3>게시판 글 수정 페이지</h3>
 	<hr>
 	
-	<form action="" method="post">
+	<form action="update.board" method="post">
 		
 		<table border="1" width="500">
 			
-			<tr>
-				<td>글 번호</td>
-				<td></td>
-			</tr>
+			<input type="hidden" name="boardid" value="${vo.boardid }">
+			
+			
 			<tr>
 				<td>작성자</td>
-				<td><input type="text" name="" value="" readonly></td>
+				<td><input type="text" name="customerid" value="${vo.boardcustomerid}" readonly></td>
 			</tr>
 			<tr>
 				<td>글 제목</td>
 				<td>
-					<input type="text" name="" value="">
+					<input type="text" name="title" value="${vo.boardtitle }">
 				</td>
 			</tr>
 			<tr>
 				<td>글 내용</td>
 				<td>
-					<textarea rows="10" style="width: 95%;" name="">
-					</textarea>
+					<textarea rows="10" style="width: 95%;" name="text">${vo.boardtext }</textarea>
 				</td>
 			</tr>
 			<tr>

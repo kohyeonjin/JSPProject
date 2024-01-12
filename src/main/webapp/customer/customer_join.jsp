@@ -57,7 +57,7 @@
 				</tr>
 			</table>	
 		<input type="submit" value="회원가입" class="btn btn-default">
-		<input type="button" value="취소" class="btn btn-default" onclick="location.href ='../project/index.jsp'">  
+		<input type="button" value="취소" class="btn btn-default" onclick="location.href ='/JSPProject/index.jsp'">  
 		
 </body>
 </html>
