@@ -67,7 +67,40 @@ public class BoradController extends HttpServlet {
 			service.delete(request, response);
 			
 			response.sendRedirect("list.board");//목록이동
+		}else if(path.equals("/Board/registForm.board")) {
+			
+			service.regist(request, response);
+			
+			request.getRequestDispatcher("/Board/list.board").forward(request, response);
+			
+		}else if(path.equals("/Board/content.board")) {
+			
+			BoardVO vo = service.getContent(request, response);
+			request.setAttribute("vo", vo);
+			System.out.println(vo);
+			request.getRequestDispatcher("board_content.jsp").forward(request, response);
+			
+		}else if (path.equals("/Board/modify.board")) {
+			
+				
+			BoardVO vo = service.getContent(request, response);
+			request.setAttribute("vo", vo);
+			request.getRequestDispatcher("board_modify.jsp").forward(request, response);
+			
+			
+		}else if(path.equals("/Board/update.board")) {
+			
+		int result = service.update(request, response);
+		
+		if(result == 1) { //수정성공
+			
+			response.sendRedirect("content.board?boardid="+request.getParameter("boardid"));
+		}else {
+			response.sendRedirect("modify.board?boardid="+request.getParameter("boardid"));
 		}
+			
+		}
+		 
 		
 		
 	}

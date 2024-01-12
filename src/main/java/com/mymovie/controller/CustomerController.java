@@ -78,8 +78,12 @@ public class CustomerController extends HttpServlet {
 				request.getRequestDispatcher("../index.jsp").forward(request, response);
 			}else {
 
-				request.setAttribute("msg","아이디/비밀번호를 확인하세요" );
-				request.getRequestDispatcher("customer_login.jsp").forward(request, response);
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('아이디,비밀번호를 확인해주세요');");
+				out.println("location.href='/JSPProject/customer/login.customer'");
+				out.println("</script>");
 
 			}
 			
@@ -130,14 +134,22 @@ public class CustomerController extends HttpServlet {
 				int result = service.delete(request, response);
 				
 				if(result==1) {
+					
 					response.setContentType("text/html; charset=UTF-8");
 					PrintWriter out = response.getWriter();
 					out.println("<script>");
 					out.println("alert('정상적으로 탈퇴되었습니다');");
+					out.println("location.href='/JSPProject/index.jsp'");
 					out.println("</script>");
+					
 				}else {
-					request.setAttribute("msg","비밀번호를 확인하세요");
-					request.getRequestDispatcher("customer_delete.jsp").forward(request, response);
+					response.setContentType("text/html; charset=UTF-8");
+					PrintWriter out = response.getWriter();
+					out.println("<script>");
+					out.println("alert('비밀번호를 확인해주세요');");
+					out.println("location.href='/JSPProject/customer/delete.customer'");
+					out.println("</script>");
+					
 				}
 				
 		

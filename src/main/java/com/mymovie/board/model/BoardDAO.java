@@ -36,7 +36,7 @@ public class BoardDAO {
 	}
 	
 	
-	
+
 	public void insert (String boardtitle,String boardtext,String board_customer_id) {
 		
 		Connection conn = null;
@@ -112,7 +112,8 @@ public class BoardDAO {
 	
 		
 		return list;
-	}	
+	}
+
 		public void delete(String id) {
 			Connection conn = null;
 			PreparedStatement pstmt = null;
@@ -132,11 +133,87 @@ public class BoardDAO {
 			}finally {
 				MovieUtil.close(conn, pstmt, null);
 			}
+		}
+			public BoardVO getContent(String boardid) {
+				
+				BoardVO vo =new BoardVO();
+				
+				Connection conn = null;
+				PreparedStatement pstmt = null;
+				
+				ResultSet re = null;
+				
+				String sql = "select * from board where boardid =?";
+				
+				try {
+					
+					conn = DriverManager.getConnection(url,uid,upw);
+					pstmt = conn.prepareStatement(sql);
+					
+					pstmt.setString(1, boardid);
+					
+					re = pstmt.executeQuery();
+					
+					
+					
+					if(re.next()) {
+						
+					int id = re.getInt("boardid");
+					String board_customer_id = re.getString("board_customer_id");
+					String boardtitle = re.getString("boardtitle");
+					String boardtext = re.getString("boardtext");
+					Timestamp boarddate = re.getTimestamp("boarddate");
+					
+					vo.setBoardid(id);
+					vo.setBoardcustomerid(board_customer_id);
+					vo.setBoardtitle(boardtitle);
+					vo.setBoardtext(boardtext);
+					vo.setBoarddate(boarddate);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}finally {
+					 
+					MovieUtil.close(conn, pstmt, re);
+				}
+				
+				return vo;
+				
 			
 			
 	
 	
 		}
+			public int update(String boardid, String title, String text) {
+				int result = 0;
+				
+				Connection conn = null;
+				PreparedStatement pstmt = null;
+				
+				String sql = "update board set boardtext=?, boardtitle=? where boardid = ?";
+				
+				
+				try {
+					conn = DriverManager.getConnection(url,uid,upw);
+					
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, text);
+					pstmt.setString(2, title);
+					pstmt.setString(3, boardid);
+					
+					result = pstmt.executeUpdate();
+					
+					
+					
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}finally {
+					MovieUtil.close(conn, pstmt, null);
+					
+				}
+				return result;
+			}
 	
 	
 }

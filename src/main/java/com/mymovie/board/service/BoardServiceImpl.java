@@ -16,6 +16,7 @@ public class BoardServiceImpl implements BoardService {
 		String boardid = request.getParameter("boardid");
 		String boardtitle = request.getParameter("boardtitle");
 		String boardtext = request.getParameter("boardtext");
+	
 		
 		System.out.println(boardtitle);
 		
@@ -35,5 +36,27 @@ public class BoardServiceImpl implements BoardService {
 		dao.delete(id); //오버라이딩된 delete
 		
 	}
+	@Override
+	public BoardVO getContent(HttpServletRequest request, HttpServletResponse response) {
+		
+		String bno = request.getParameter("boardid");
+		BoardVO vo = dao.getContent(bno);
+		
+		return vo;
+	}
+	@Override
+	public int update(HttpServletRequest request, HttpServletResponse response) {
+		
+		String boardid = request.getParameter("boardid");
+		String title = request.getParameter("title");
+		String boardtext = request.getParameter("text");
+		
+		int result = dao.update(boardid, title, boardtext);
+		
+		return result;
+	}
+
+	
+
 
 }
