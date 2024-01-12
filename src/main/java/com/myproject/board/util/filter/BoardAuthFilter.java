@@ -31,14 +31,16 @@ public class BoardAuthFilter implements Filter {
 		//세션얻음
 		System.out.println("필터동작함");
 		HttpSession session = req.getSession();
+		
 		String boardid=(String)session.getAttribute("customerId");
 		String writer= req.getParameter("boardcustomerid");
+		
 		System.out.println(boardid+writer);
-		if(writer ==null) {
+		if(writer == null) {
 			res.sendRedirect(req.getContextPath() +"/customer/login.customer");
 			return;
 		}
-		if(boardid ==null) {
+		if(boardid == null) {
 			res.sendRedirect(req.getContextPath() + "/customer/login.customer");
 			return;
 		}
