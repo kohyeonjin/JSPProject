@@ -113,10 +113,11 @@ right:34.5px;
         <nav><!--의미(시맨틱)가 있는 태그-->
             <ul class="container">
              <a href="${pageContext.request.contextPath}/index.jsp">HOME</a> 
-			<a href="${pageContext.request.contextPath}/customer/reservation.customer">예매</a>
+			<a href="${pageContext.request.contextPath}/customer/customer_reservation.jsp">예매</a>
 			<a href= "${pageContext.request.contextPath}/customer/login.customer">로그인</a>
 			<a href= "${pageContext.request.contextPath}/customer/join.customer">회원가입</a>
-             
+			<a href= "${pageContext.request.contextPath}/reservation/checkres.reservation">예매내역</a>
+            
             </ul>
             </nav>
             
