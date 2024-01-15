@@ -31,8 +31,12 @@ public class ReservationDAO {
 	public static ReservationDAO getInstance() {
 		return rvdao;
 	}
+<<<<<<< HEAD
 	
 	public int insert(String res_cus_id , int showId) {
+=======
+	public int insert(String res_cus_id , String showId) {
+>>>>>>> 1145416401de8d97ebf8c0ce929bfef99bf8cc1f
 		
 		int result = 0;
 		
@@ -46,7 +50,11 @@ public class ReservationDAO {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, res_cus_id);
+<<<<<<< HEAD
 			pstmt.setInt(2, showId);
+=======
+			pstmt.setString(2, showId);
+>>>>>>> 1145416401de8d97ebf8c0ce929bfef99bf8cc1f
 						
 			result = pstmt.executeUpdate();
 			
